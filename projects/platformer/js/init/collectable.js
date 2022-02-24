@@ -37,7 +37,7 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
        
-        createCollectable(type.max,550,600,0.7,6)
+        createCollectable(type.max,550,600,0.7,0.6)
 
     
         
