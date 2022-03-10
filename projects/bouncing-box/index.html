@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: turquoise;
 			font-size: 300%;
 			text-align: center;
 			display: block;
@@ -48,9 +48,11 @@
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
+				console.log('the box just moved');
 				box.css("left", newPositionX);
 			}
-
+                  
+			moveBoxTo(boardWidth);
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
@@ -63,14 +65,15 @@
 			// TODO 2 - Variable declarations 
 			
 
-			
+			var location = 0;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
-			function update() {
-				
+			function update() { console.log('update function was called')
+				moveBoxTo(location);
+			location = location + 10;
 
 			};
 
@@ -79,7 +82,7 @@
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
-			function handleBoxClick() {
+			function handleBoxClick() { console.log("hey");
 				
 
 
