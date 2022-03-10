@@ -32,6 +32,8 @@
         game.opspark = {};
         game.opspark.init = function() {
             game.stage.backgroundColor = "#c9f7c6";
+            game.scale.pageAlignHorizontally = true;
+            game.scale.pageAlignVertically = true;
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.TILE_BIAS = 2;
         };
