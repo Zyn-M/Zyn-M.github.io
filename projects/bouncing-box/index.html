@@ -61,7 +61,9 @@
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
 			//////////////////////////////////////////////////////////////////
-			
+			var positionX = 0;
+			var points = 0;
+			var speed = 10;
 			// TODO 2 - Variable declarations 
 			
 
@@ -72,9 +74,10 @@
 			turn it around! 
 			*/
 			function update() { console.log('update function was called')
-				moveBoxTo(location);
+			/* code to increase positionX by 10 here*/	
+			moveBoxTo(positionX);
 			location = location + 10;
-
+			positionX = positionX + speed;
 			};
 
 			/* 
@@ -82,7 +85,13 @@
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
-			function handleBoxClick() { console.log("hey");
+			function handleBoxClick() { console.log("hey"); {
+				positionX = 0;
+				points += 1
+				
+				changeBoxText(points); 
+			}
+			
 				
 
 
