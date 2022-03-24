@@ -16,11 +16,13 @@
 			position: absolute;
 			top: 100px;
 			left: 0px;
+			background-image: url(images/star.jpg)
 			/* <--- Change me! */
 		}
 
 		.board {
 			height: 100vh;
+			background-color:lavender;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -56,7 +58,7 @@
 				box.css("left", newPositionX);
 			}
 
-			moveBoxTo(boardWidth);
+			// moveBoxTo(boardWidth);
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
@@ -71,7 +73,7 @@
 			// TODO 2 - Variable declarations 
 
 
-			var location = 0;
+			// var location = 0;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -81,12 +83,18 @@
 				/* code to increase positionX by 10 here*/
 			/* code to increase positionX by 10 here*/	
 				/* code to increase positionX by 10 here*/
-				moveBoxTo(positionX);
-				location = location + 10;
+				// location = location + 10;
 				positionX = positionX + speed;
-				if (positionX > 200){
-					
+				moveBoxTo(positionX);
+				if (positionX >= boardWidth) {
+					console.log("speed before:" + speed)
+					speed = -speed
+					console.log("speed after:" + speed)
 				}
+				if (positionX < 0) {
+				   speed = -speed}
+				  
+				
 			};
 
 			/* 
@@ -97,8 +105,15 @@
 			function handleBoxClick() {
 				positionX = 0;
 				points += 1
-				speed = speed + 3
+			    // speed = speed + 3
 				changeBoxText(points);
+				if (speed > 0) {
+					speed = speed + 3
+				}
+				else if (speed < 0) {
+					speed = speed - 3
+				}
+
 			}
 
 
