@@ -12,23 +12,28 @@ function runProgram(){
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-  var ball = {};
-  ball.x = parseFloat($("#ball").css("left"));
-  ball.y = parseFloat($("#ball").css("top"));
-  ball.width = $("#id").width(20);
-  ball.height = $("#id").height(80);
-  ball.speedX = 0;
-  ball.speedY = 0;
-  ball.id = "#ball";
+  
+  function Objects(id){
+    var Ball = {};
+    ball.x = parseFloat($("#ball").css("left"));
+    ball.y = parseFloat($("#ball").css("top"));
+    ball.width = $("#id").width(20);
+    ball.height = $("#id").height(80);
+    ball.speedX = 0;
+    ball.speedY = 0;
+    ball.id = "#ball";
+    return Ball;
+  }
 
   var theLeftPaddle = {};
-  theLeftPaddle.x = parseFloat($("#the left paddle").css("left"));
-  theLeftPaddle.y = parseFloat($("#the right paddle").css("top"));
+  theLeftPaddle.x = parseFloat($("#theLeftPaddle").css("left"));
+  theLeftPaddle.y = parseFloat($("#theRight paddle").css("top"));
   theLeftPaddle.width = $("#id").width(20);
   theLeftPaddle.height = $("#id").height(80);
   theLeftPaddle.speedX = 0;
   theLeftPaddle.soeedY = 0;
-  theLeftPaddle.id = "#the left paddle";
+  theLeftPaddle.id = "#theLeftPaddle";
+  
 
   var theRightPaddle = {};
   theRightPaddle.x = parseFloat($("#the right paddle").css("left"));
@@ -37,37 +42,41 @@ function runProgram(){
   theRightPaddle.height = $("#id").height(80);
   theRightPaddle.speedX = 0;
   theRightPaddle.speedY = 0;
-  theRightPaddle.id = "#the right paddle"
+  theRightPaddle.id = "#theRightPaddle"
 
 
 
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
-
+  $(document).on("keydown", handleKeyDown); 
+  $(document).on("keyup", handleKeyUp);
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  var KEYCODE = {
+  var KEY = {
      DOWN: 40,
      UP: 38,
   }
 
   function handleKeyDown(event){
-    var keycode = event.DOWN;
-    console.log(keycode)
+    var event = event.DOWN;
+    console.log(event.DOWN)
 
-    if(keycode === KEYCODE.DOWN){
+    if(event.which === KEY.DOWN){
       console.log("down pressed")
 
     }
+    else{event.which === KEY.UP
+    
+    }
   }
   function handleKeyUp(event){
-    var keycode = event.UP;
-    console.log(keycode)
+    var event = event.UP;
+    console.log(event.up)
 
-    if(keycode === event.UP){
+    if(event.which === event.UP){
       console.log("up pressed")
 
     }
